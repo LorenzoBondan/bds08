@@ -1,5 +1,5 @@
 import { Store } from "./Store";
 
 export type FilterData = {
-    store : Store;
+    store? : Store | null;
 }

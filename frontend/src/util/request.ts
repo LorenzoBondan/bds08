@@ -9,7 +9,7 @@ export const requestBackend = axios.create({
 
 export const buildFilterParams = (filterData? : FilterData, extraParams? : Record<string, unknown>) => {
     return {
-        store: filterData?.store,
+        storeId: filterData?.store?.id,
         ...extraParams
     };
 };

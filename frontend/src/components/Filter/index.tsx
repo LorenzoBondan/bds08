@@ -2,23 +2,20 @@
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
+import { FilterData } from 'types/FilterData';
 import { Store } from 'types/Store';
 import { requestBackend } from 'util/request';
 import './styles.css';
 
-export type SalesFilterData = {
-    store: Store | null;
-}
-
 type Props = {
-    onSubmitFilter : (data: SalesFilterData) => void;
+    onSubmitFilter : (data: FilterData) => void;
 }
 
 const Filter = ( {onSubmitFilter} : Props) => {
 
-    const { handleSubmit, control, setValue, getValues } = useForm<SalesFilterData>();
+    const { handleSubmit, control, setValue, getValues } = useForm<FilterData>();
 
-    const [selectStore, setSelectStore] = useState<Store[]>();
+    const [selectStore, setSelectStore] = useState<Store[]>([]);
 
     //trazer os stores pra povoar o combobox
     useEffect(() => {
@@ -31,16 +28,18 @@ const Filter = ( {onSubmitFilter} : Props) => {
     const handleChangeStore = (value: Store) => {
         setValue('store', value);
 
-        const obj : SalesFilterData = {
+        const obj : FilterData = {
             store: getValues('store'), 
         };
 
         onSubmitFilter(obj);
     }
 
-    const onSubmit = (formData : SalesFilterData) => {
+    //enviar o form (fazer a busca filtrada)
+    const onSubmit = (formData : FilterData) => {
         onSubmitFilter(formData);
     };
+
     
     return(
         <div className="filter-container base-card">

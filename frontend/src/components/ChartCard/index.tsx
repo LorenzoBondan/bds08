@@ -7,14 +7,15 @@ type Props = {
     labels : string[];
     name : string;
     series : number[];
+    total: string;
 }
 
-const ChartCard = ( {labels, name, series} : Props) => {
+const ChartCard = ( {labels, name, series, total} : Props) => {
     return(
         <div className='base-card chart-card-container'>
 
             <div className='chart-card-content-container'>
-                <h2>R$ 746.484,00</h2>
+                <h2>{total}</h2>
                 <p>Total de vendas</p>
             </div>
 
@@ -22,8 +23,8 @@ const ChartCard = ( {labels, name, series} : Props) => {
                 <ReactApexChart 
                     options={buildPieChartConfig(labels, name)}
                     type="donut"
-                    width="400"
-                    height={400}
+                    width="300"
+                    height={350}
                     series={series}
                 />
             </div>
