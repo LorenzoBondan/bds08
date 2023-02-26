@@ -42,7 +42,7 @@ export const buildPieChartConfig = (labels: string[] = [], name: string) => {
       pie: {
         size: 400,
         donut: {
-          size: '85%', // espessura do gráfico
+          size: '65%', // espessura do gráfico
           labels: {
             show: true,
             name: {

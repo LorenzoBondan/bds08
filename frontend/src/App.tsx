@@ -62,7 +62,9 @@ function App() {
 
         <ChartCard 
           name='Gênero'
-          labels={salesByGender?.labels || []}
+          labels={ 
+            
+            salesByGender?.labels || []}
           series={salesByGender?.series || []}
           total={formatPrice(total.sum)}
         />

@@ -1,3 +1,14 @@
 .filter-container{
     padding: 40px 15px;
 }
+
+.store-filter-container{
+    width: 270px;
+}
+
+
+@media(min-width:576px){
+    .filter-container{
+        padding: 40px;
+    }
+}
