@@ -1,10 +1,16 @@
+import Navbar from 'components/Navbar';
 import './App.css';
+import './assets/styles/custom.scss'
 
 function App() {
   return (
-    <div className="App">
-      <h1>welcome</h1>
-    </div>
+    <>
+      <Navbar/>
+      
+      <div className="app-container">
+        <h1>welcome</h1>
+      </div>
+    </>
   );
 }
 
